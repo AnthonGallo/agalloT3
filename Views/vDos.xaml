@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="agalloT3.Views.vDos"
+             Title="vDos">
+    <VerticalStackLayout>
+        <Label 
+            Text="DATOS DE USUARIO!"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Label Text="Detalles del Contacto" FontSize="24" />
+        <Label x:Name="ciLabel" />
+        <Label x:Name="rucLabel" />
+        <Label x:Name="pasaporteLabel" />
+        <Label x:Name="nombresLabel" />
+        <Label x:Name="apellidosLabel" />
+        <Label x:Name="fechaLabel" />
+        <Label x:Name="correoLabel" />
+        <Label x:Name="salarioLabel" />
+        <Label x:Name="iessLabel" />
+
+        <Button x:Name="btnExportar"
+                Text="Exportar"
+                Clicked="btnExportar_Clicked"/>
+    </VerticalStackLayout>
+</ContentPage>
