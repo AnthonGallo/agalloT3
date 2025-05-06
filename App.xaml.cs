@@ -1,15 +1,19 @@
-﻿namespace agalloT3
-{
-    public partial class App : Application
-    {
-        public App()
-        {
-            InitializeComponent();
-        }
+﻿namespace agalloT3;
 
-        protected override Window CreateWindow(IActivationState? activationState)
+public partial class App : Application
+{
+    public App()
+    {
+        InitializeComponent();
+
+        // Establecer tema claro
+        UserAppTheme = AppTheme.Light;
+
+        // Configurar la página principal con navegación
+        MainPage = new NavigationPage(new Views.vUno())
         {
-            return new Window(new Views.vUno());
-        }
+            BarBackgroundColor = Color.FromArgb("#5D4037"),
+            BarTextColor = Colors.White
+        };
     }
 }

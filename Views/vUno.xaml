@@ -2,33 +2,113 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="agalloT3.Views.vUno"
-             Title="vUno">
-        <<Style TargetType="Entry">
-            <Setter Property="Margin" Value="10" />
-            <Setter Property="BackgroundColor" Value="#f5f5f5" />
-            </Style>
-        <Style TargetType="Picker">
-            <Setter Property="Margin" Value="10" />
+             Title="Registro de Contactos"
+             BackgroundColor="#F5F9FF">
+
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="TextColor" Value="#00519D"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="Margin" Value="0,5,0,0"/>
         </Style>
-        <VerticalStackLayout>
-        <Label 
-            Text="REGISTRO DE DATOS"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
 
-                <Entry x:Name="IdentificationNumber" Placeholder="Número de Identificación" />
-                <Entry x:Name="FirstName" Placeholder="Nombres" />
-                <Entry x:Name="LastName" Placeholder="Apellidos" />
-                <DatePicker x:Name="BirthDate" />
-                <Entry x:Name="Email" Placeholder="Correo Electrónico" />
-                <Entry x:Name="Salary" Placeholder="Salario" Keyboard="Numeric" />
+        <Style TargetType="Picker">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="TextColor" Value="#00519D"/>
+            <Setter Property="BackgroundColor" Value="#E1ECF7"/>
+            <Setter Property="HeightRequest" Value="55"/>
+            <Setter Property="MinimumHeightRequest" Value="65"/>
+            <Setter Property="Margin" Value="0,5,0,0"/>
+            <Setter Property="HorizontalOptions" Value="Fill"/>
+        </Style>
 
-                <Button x:Name="btnGuardar"
-                Text="Guardar"
-                Clicked="btnGuardar_Clicked"/>
+        <Style TargetType="Entry">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="TextColor" Value="#00519D"/>
+            <Setter Property="BackgroundColor" Value="#E1ECF7"/>
+            <Setter Property="PlaceholderColor" Value="#7F9EB9"/>
+            <Setter Property="HeightRequest" Value="50"/>
+            <Setter Property="Margin" Value="0,5,0,0"/>
+            <Setter Property="ClearButtonVisibility" Value="WhileEditing"/>
+            <Setter Property="HorizontalOptions" Value="Fill"/>
+        </Style>
 
-        <Button x:Name="btnRegistro"
-                Text="Registrar"
-                Clicked="btnRegistro_Clicked"/>
-    </VerticalStackLayout>
+        <Style TargetType="DatePicker">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="TextColor" Value="#00519D"/>
+            <Setter Property="BackgroundColor" Value="#E1ECF7"/>
+            <Setter Property="HeightRequest" Value="50"/>
+            <Setter Property="Margin" Value="0,5,0,0"/>
+            <Setter Property="HorizontalOptions" Value="Fill"/>
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="BackgroundColor" Value="#FFD700"/>
+            <Setter Property="HeightRequest" Value="50"/>
+            <Setter Property="CornerRadius" Value="25"/>
+            <Setter Property="Margin" Value="0,20,0,0"/>
+            <Setter Property="HorizontalOptions" Value="Fill"/>
+        </Style>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="10">
+            <StackLayout Orientation="Horizontal" 
+                        HorizontalOptions="Center" 
+                        Spacing="10"
+                        VerticalOptions="Center">
+                <Image Source="ies.png" 
+                       HeightRequest="80" 
+                       Aspect="AspectFit"/>
+                <Label Text="Registro de Contactos" 
+                       FontSize="24" 
+                       TextColor="#00519D"
+                       FontAttributes="Bold"
+                       VerticalOptions="Center"/>
+            </StackLayout>
+
+            <Label Text="Tipo de Identificación"/>
+            <Picker x:Name="pkIdentificacion" Title="Seleccione un tipo" TitleColor="#00519D">
+                <Picker.Items>
+                    <x:String>CI</x:String>
+                    <x:String>RUC</x:String>
+                    <x:String>Pasaporte</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <Label Text="Número de Identificación"/>
+            <Entry x:Name="txtIdentificacion" 
+                   Placeholder="Ingrese su identificación"
+                   Keyboard="Numeric"/>
+
+            <Label Text="Nombres"/>
+            <Entry x:Name="txtNombres" 
+                   Placeholder="Ingrese sus nombres"/>
+
+            <Label Text="Apellidos"/>
+            <Entry x:Name="txtApellidos" 
+                   Placeholder="Ingrese sus apellidos"/>
+
+            <Label Text="Fecha de Nacimiento"/>
+            <DatePicker x:Name="dpkFecha" 
+                        Format="dd/MM/yyyy"/>
+
+            <Label Text="Correo Electrónico"/>
+            <Entry x:Name="txtCorreo" 
+                   Placeholder="ejemplo@dominio.com"
+                   Keyboard="Email"/>
+
+            <Label Text="Salario ($)"/>
+            <Entry x:Name="txtSalario" 
+                   Placeholder="0.00"
+                   Keyboard="Numeric"/>
+
+            <Button x:Name="btnGuardar" 
+                    Text="Guardar Contacto" 
+                    Clicked="btnGuardar_Clicked"/>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

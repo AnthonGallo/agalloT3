@@ -2,26 +2,85 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="agalloT3.Views.vDos"
-             Title="vDos">
-    <VerticalStackLayout>
-        <Label 
-            Text="DATOS DE USUARIO!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+             Title="Detalle de Contacto"
+             BackgroundColor="#F5F9FF">
 
-        <Label Text="Detalles del Contacto" FontSize="24" />
-        <Label x:Name="ciLabel" />
-        <Label x:Name="rucLabel" />
-        <Label x:Name="pasaporteLabel" />
-        <Label x:Name="nombresLabel" />
-        <Label x:Name="apellidosLabel" />
-        <Label x:Name="fechaLabel" />
-        <Label x:Name="correoLabel" />
-        <Label x:Name="salarioLabel" />
-        <Label x:Name="iessLabel" />
+    <ContentPage.Resources>
+        <Style TargetType="Label" x:Key="BaseLabelStyle">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="TextColor" Value="#00519D"/>
+        </Style>
 
-        <Button x:Name="btnExportar"
-                Text="Exportar"
-                Clicked="btnExportar_Clicked"/>
-    </VerticalStackLayout>
+        <Style TargetType="Label" x:Key="TitleStyle" BasedOn="{StaticResource BaseLabelStyle}">
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="HorizontalOptions" Value="Center"/>
+            <Setter Property="Margin" Value="0,0,0,20"/>
+        </Style>
+
+        <Style TargetType="Label" x:Key="DataLabelStyle" BasedOn="{StaticResource BaseLabelStyle}">
+            <Setter Property="Margin" Value="10,5"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+        </Style>
+
+        <Style TargetType="Label" x:Key="ValueLabelStyle" BasedOn="{StaticResource BaseLabelStyle}">
+            <Setter Property="Margin" Value="10,5,10,15"/>
+            <Setter Property="BackgroundColor" Value="#E1ECF7"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="FontAttributes" Value="None"/>
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="BackgroundColor" Value="#FFD700"/>
+            <Setter Property="HeightRequest" Value="50"/>
+            <Setter Property="CornerRadius" Value="25"/>
+            <Setter Property="Margin" Value="0,20,0,0"/>
+            <Setter Property="HorizontalOptions" Value="Fill"/>
+        </Style>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="10">
+            <StackLayout Orientation="Horizontal" 
+                        HorizontalOptions="Center" 
+                        Spacing="10"
+                        VerticalOptions="Center">
+                <Image Source="ies.png" 
+                       HeightRequest="80" 
+                       Aspect="AspectFit"/>
+                <Label Text="Detalle de Contacto" 
+                       Style="{StaticResource TitleStyle}"/>
+            </StackLayout>
+
+            <Label Text="Tipo de Identificación:" Style="{StaticResource DataLabelStyle}"/>
+            <Label x:Name="lblTipoIdentificacion" Style="{StaticResource ValueLabelStyle}"/>
+
+            <Label Text="Número de Identificación:" Style="{StaticResource DataLabelStyle}"/>
+            <Label x:Name="lblNumeroIdentificacion" Style="{StaticResource ValueLabelStyle}"/>
+
+            <Label Text="Nombres:" Style="{StaticResource DataLabelStyle}"/>
+            <Label x:Name="lblNombres" Style="{StaticResource ValueLabelStyle}"/>
+
+            <Label Text="Apellidos:" Style="{StaticResource DataLabelStyle}"/>
+            <Label x:Name="lblApellidos" Style="{StaticResource ValueLabelStyle}"/>
+
+            <Label Text="Fecha de Nacimiento:" Style="{StaticResource DataLabelStyle}"/>
+            <Label x:Name="lblFecha" Style="{StaticResource ValueLabelStyle}"/>
+
+            <Label Text="Correo Electrónico:" Style="{StaticResource DataLabelStyle}"/>
+            <Label x:Name="lblCorreo" Style="{StaticResource ValueLabelStyle}"/>
+
+            <Label Text="Salario:" Style="{StaticResource DataLabelStyle}"/>
+            <Label x:Name="lblSalario" Style="{StaticResource ValueLabelStyle}"/>
+
+            <Label Text="Aporte al IESS:" Style="{StaticResource DataLabelStyle}"/>
+            <Label x:Name="lblAporteIESS" Style="{StaticResource ValueLabelStyle}" TextColor="#E67E22"/>
+
+            <Button x:Name="btnExportar"
+                    Text="Exportar a Archivo"
+                    Clicked="btnExportar_Clicked"/>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
