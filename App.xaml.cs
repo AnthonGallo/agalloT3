@@ -6,7 +6,6 @@ public partial class App : Application
     {
         InitializeComponent();
         UserAppTheme = AppTheme.Light;
-
         MainPage = new NavigationPage(new Views.vUno())
         {
             BarBackgroundColor = Color.FromArgb("#5D4037"),
